@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: yoo-zuul
+  cloud:
+    config:
+      uri: http://localhost:9999 #配置中心地址
+      name: yoo-zuul #配置中心文件前缀
+      profile: dev #指定配置中心的环境
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

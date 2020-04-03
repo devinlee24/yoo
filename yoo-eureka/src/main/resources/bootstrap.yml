@@ -1,0 +1,19 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: yoo-eureka
+
+eureka:
+  server:
+    enable-self-preservation: true #服务端开启自我保护模式。无论什么情况，服务端都会保持一定数量的服务。避免client与server的网络问题，而出现大量的服务被清除。
+    eviction-interval-timer-in-ms: 30000 #开启清除无效服务的定时任务，时间间隔。默认60秒
+  instance:
+    hostname: localhost
+    prefer-ip-address: true #使用IP进行注册，默认使用主机名
+  client:
+    register-with-eureka: false #实例是否在eureka服务器上注册自己的信息以供其他服务发现，默认为true
+    fetch-registry: false #此客户端是否获取eureka服务器注册表上的注册信息，默认为true
+    service-url:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/ #eureka注册中心地址
