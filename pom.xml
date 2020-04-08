@@ -32,6 +32,9 @@
         <module>yoo-eureka</module><!-- 1.注册中心 -->
         <module>yoo-config</module><!-- 2.配置中心 -->
         <module>yoo-zuul</module>  <!-- 3.网关服务 -->
+        <module>yoo-api</module>   <!-- 4.API服务 -->
+        <module>yoo-service-user</module>   <!-- 5.用户服务 -->
+        <module>yoo-commons</module><!-- 6.公共服务 -->
     </modules>
 
     <!-- 外部依赖列表 -->
