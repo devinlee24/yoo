@@ -7,13 +7,14 @@
         <groupId>com.devinlee</groupId>
         <artifactId>yoo</artifactId>
         <version>1.0.0</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.devinlee</groupId>
     <artifactId>yoo-api</artifactId>
     <version>1.0.0</version>
     <name>yoo-api</name>
+    <packaging>pom</packaging>
     <description>Api</description>
 
     <modules>
@@ -30,8 +31,6 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-openfeign</artifactId>
         </dependency>
-
-
     </dependencies>
 
 </project>

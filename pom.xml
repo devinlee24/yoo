@@ -14,7 +14,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.devinlee</groupId>
     <artifactId>yoo</artifactId>
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
     <version>1.0.0</version>
     <name>yoo</name>
     <description>Demo project for Spring Boot</description>
@@ -25,6 +25,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <spring-cloud.version>Hoxton.SR3</spring-cloud.version>
+        <Dmaven.test.skip>true</Dmaven.test.skip>
     </properties>
 
     <!-- 指定多个模块，可同时编译等操作 -->
@@ -34,7 +35,7 @@
         <module>yoo-zuul</module>  <!-- 3.网关服务 -->
         <module>yoo-api</module>   <!-- 4.API服务 -->
         <module>yoo-service-user</module>   <!-- 5.用户服务 -->
-        <module>yoo-commons</module><!-- 6.公共服务 -->
+<!--        <module>yoo-commons</module>&lt;!&ndash; 6.公共服务 &ndash;&gt;-->
     </modules>
 
     <!-- 外部依赖列表 -->

@@ -7,7 +7,7 @@
         <groupId>com.devinlee</groupId>
         <artifactId>yoo</artifactId>
         <version>1.0.0</version>
-        <relativePath/><!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>com.devinlee</groupId>
