@@ -5,12 +5,17 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import com.netflix.zuul.exception.ZuulException;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Component;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * 权限验证
  */
+@Component
 public class AuthFilter extends ZuulFilter {
 
     /**
@@ -64,15 +69,22 @@ public class AuthFilter extends ZuulFilter {
         RequestContext requestContext = RequestContext.getCurrentContext();
         //从上下文中获取request对象
         HttpServletRequest httpServletRequest = requestContext.getRequest();
+        HttpServletResponse httpServletResponse = requestContext.getResponse();
         //从请求中获取token
-        String token = httpServletRequest.getHeader("access-token");
+        String token = httpServletRequest.getHeader("token");
         //判断
         if(token == null || "".equals(token.trim())){
 
+            httpServletResponse.setContentType("text/html;charset=utf-8");
+            try {
+                httpServletResponse.sendError(403,"没有权限");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             //过滤该请求，不对其进行路由
             requestContext.setSendZuulResponse(false);
-            //返回401状态码。也可以考虑重定向到登录页。
-            requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
+            ////返回401状态码。也可以考虑重定向到登录页。
+            //requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
         }
         return null;
     }
