@@ -1,7 +1,10 @@
 server:
-  port: 8008
+  port: 80
   servlet:
     context-path: /
+spring:
+  application:
+    name: yoo-zuul
 
 eureka:
   client:
@@ -9,3 +12,22 @@ eureka:
       defaultZone: http://localhost:8888/eureka/ #eureka注册地址
   instance:
     prefer-ip-address: true #使用IP注册，默认主机名
+
+zuul:
+  routes:
+#    ignoredServices: '*'
+    yoo-service-user: ## 该配置方式中，这里只是给路由一个名称，可以任意起名。
+      strip-prefix: false #代理后，是否将前缀移除
+      path: /user/**
+      serviceId: yoo-service-user
+
+ribbon:
+  ReadTimeout: 60000
+  ConnectTimeout: 60000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

@@ -1,0 +1,15 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: yoo-service-user
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8888/eureka/ #eureka注册地址
+  instance:
+    prefer-ip-address: true #使用IP注册，默认主机名
+
+feign:
+  hystrix:
+    enabled: true
